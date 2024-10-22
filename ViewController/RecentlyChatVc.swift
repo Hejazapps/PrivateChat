@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import SDWebImage
 
 class RecentlyChatVc: UIViewController {
     
     let gap:CGFloat = 10
     @IBOutlet weak var frequentlyChattedCollectionView: UICollectionView!
-    
+    let fetchFriendsChat = FetchAllFriendsChat()
     @IBOutlet weak var recentTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     override func viewDidLoad() {
@@ -53,27 +54,28 @@ class RecentlyChatVc: UIViewController {
     }
     func getAllData() {
         
-        let fetchFriendsChat = FetchAllFriendsChat()
+        
         fetchFriendsChat.authorizationKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWY4MDVkNGY0ZTRmOWU5OWI5ZTQ3MDMiLCJhY2NvdW50TmFtZSI6ImlyYmF6SGV5d293LTEiLCJlbWFpbCI6ImlyYmF6MjAwMEBnbWFpbC5jb20iLCJlbWFpbFZlcmlmaWVkIjp0cnVlLCJhY2NvdW50SWQiOjIyNSwicGhvbmVOdW1iZXIiOiIiLCJpYXQiOjE3Mjk1NzAzMDYsImV4cCI6MTczMDQzNDMwNiwiYXVkIjoiVVNFUiIsInN1YiI6IkFVVEgifQ.2zQFZH2t9YmcREym9pWqGftMj8SadKWrM8ipQlw4zkw"
-
+        
         fetchFriendsChat.fetchAllFriends { result in
             switch result {
-            case .success(let friendsProfile):
-                // Handle success - you have the FriendsProfile object
-                print("Fetched friends: \(friendsProfile.friends)")
+            case .success(_):
+                DispatchQueue.main.async {
+                    
+                    self.recentTableView.reloadData()
+                    
+                }
                 
             case .failure(let error):
                 // Handle error
                 print("Error fetching friends: \(error.localizedDescription)")
             }
         }
-
+        
     }
     
     func registerXib () {
         
-        let nib = UINib(nibName: "ProfileCell", bundle: .main)
-        frequentlyChattedCollectionView.register(nib, forCellWithReuseIdentifier: "ProfileCell")
         
         recentTableView.register(UINib(nibName: "DetailCell", bundle: nil), forCellReuseIdentifier: "DetailCell")
         
@@ -98,58 +100,6 @@ class RecentlyChatVc: UIViewController {
     }
 }
 
-
-extension RecentlyChatVc: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // Calculate the item width based on the collection view's width and desired number of items per row
-        
-        
-        return CGSize(width: 60, height: 60)  // Adjust height if needed
-    }
-    
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: gap, left: 0, bottom: gap, right: gap)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return gap
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return gap
-    }
-}
-
-
-extension RecentlyChatVc: UICollectionViewDataSource {
-    
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return  20
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
-        
-        
-        
-        
-        return cell
-    }
-}
-
-
-
-
 extension RecentlyChatVc: UITableViewDataSource,UITableViewDelegate {
     
     
@@ -171,7 +121,7 @@ extension RecentlyChatVc: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         
-        return  20
+        return fetchFriendsChat.fetchList.count
     }
     
     
@@ -179,41 +129,64 @@ extension RecentlyChatVc: UITableViewDataSource,UITableViewDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as! DetailCell
         cell.selectionStyle = .none
+        let obj = fetchFriendsChat.fetchList[indexPath.row]
+        
+      
+        
+        if let urlName = obj.members[0].avatar?.src {
+            if let url = URL(string: urlName) {
+                cell.imv.sd_setImage(with: url, placeholderImage: UIImage(named: "Human Icon"))
+            }
+        }
+        
+        cell.imv.layer.cornerRadius = cell.imv.frame.size.width / 2.0
+        cell.imv.clipsToBounds = true
+        
+        
         
         let attributedString = NSMutableAttributedString()
-        
+
+        // Create a paragraph style with spacing
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.paragraphSpacing = 5 // Adjust this value for more or less space
+
         // Title attributes
         let titleAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.white,
-            .font: UIFont.boldSystemFont(ofSize: 16)
+            .font: UIFont.boldSystemFont(ofSize: 16),
+            .paragraphStyle: paragraphStyle // Use paragraph style for title
         ]
-        let titleAttributedString = NSAttributedString(string: "Hello i am an looser!", attributes: titleAttributes)
-        
+
+        let name = obj.members[0].accountName ?? "No Name"
+        let titleAttributedString = NSAttributedString(string: name, attributes: titleAttributes)
+
         // Add title to the attributed string
         attributedString.append(titleAttributedString)
-        
-        // Append newline character
-        attributedString.append(NSAttributedString(string: "\n"))
-        
+
+        // Append newline character (optional, if you want a little gap)
+        attributedString.append(NSAttributedString(string: "\n")) // Optional if you want a bit of extra space
+
         // Subtitle attributes
         let subtitleAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.gray,
-            .font: UIFont.systemFont(ofSize: 14)
+            .font: UIFont.systemFont(ofSize: 14),
+            .paragraphStyle: paragraphStyle // Use the same paragraph style for subtitle
         ]
-        let subtitleAttributedString = NSAttributedString(string: "But i am an expert in UKIT", attributes: subtitleAttributes)
-        
+
+        let subtitleAttributedString = NSAttributedString(string: "But I am an expert in UKIT", attributes: subtitleAttributes)
+
         // Add subtitle to the attributed string
         attributedString.append(subtitleAttributedString)
-        
         // Assign the attributed string to the label
         cell.detailLabel.attributedText = attributedString
+ 
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         
-        return  90
+        return  65
         
     }
     
@@ -225,3 +198,14 @@ extension RecentlyChatVc: UITableViewDataSource,UITableViewDelegate {
     
 }
 
+
+
+extension UIImage {
+    func resized(to size: CGSize) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        self.draw(in: CGRect(origin: .zero, size: size))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return resizedImage
+    }
+}

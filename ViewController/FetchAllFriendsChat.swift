@@ -11,15 +11,16 @@ import Foundation
 
 class FetchAllFriendsChat {
     
-    var currentPage: Int = 0
+    var currentPage: Int = 1
     var authorizationKey: String = ""
     var shouldFetch = true
-    var currentOnlineFriends = [Friend]()
+    var fetchList = [Chat]()
     
     
     
-    func fetchAllFriends(completion: @escaping (Result<FriendsProfile, Error>) -> Void) {
-        let urlString = "https://devapi.heywow.app/api/chat?page=1&limit=10"
+    func fetchAllFriends(completion: @escaping (Result<Response, Error>) -> Void) {
+        let urlString = "https://devapi.heywow.app/api/chat?page=\(currentPage)&limit=10"
+        print("urlstring \(urlString)")
         
         guard let apiUrl = URL(string: urlString) else {
             completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
@@ -46,38 +47,35 @@ class FetchAllFriendsChat {
                 return
             }
             
-            
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                    if let ar = json["data"] as? NSArray {
-                        for item in ar {
-                            
-                        }
-                    }
-                }
-            } catch {
-                
-            }
-            
-            
-            
             do {
                 let decoder = JSONDecoder()
                 
-                let userProfile = try decoder.decode(FriendsProfile.self, from: data)
+             
                 
-                if userProfile.friends.count > 0 {
+                let userProfile = try decoder.decode(Response.self, from: data)
+                
+                if let chatData = userProfile.data, let filteredChats = chatData.filteredChats {
                     
-                    self.currentPage = self.currentPage + 1
-                    self.shouldFetch = true
+                    if filteredChats.count < 10 {
+                        self.shouldFetch = false
+                    }
+                    for chat in filteredChats {
+                        self.fetchList.append(chat)
+                    }
+                    print("data i found \(self.fetchList.count)")
+                } else {
+                    print("No chat data available.")
                 }
-                else {
-                    self.shouldFetch = false
-                }
-                
                 
                 completion(.success(userProfile))
             } catch {
+                // Print the error for debugging
+                print("Error decoding JSON: \(error.localizedDescription)")
+                
+                // Optionally, print the raw data to help identify issues
+                if let jsonString = String(data: data, encoding: .utf8) {
+                    print("Raw JSON data: \(jsonString)")
+                }
                 self.shouldFetch = false
                 completion(.failure(error))
             }

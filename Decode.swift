@@ -1,48 +1,53 @@
-//
-//  Decode.swift
-//  PrivateChat
-//
-//  Created by Sadiqul Amin on 22/10/24.
-//
 
-struct FriendsProfile: Codable {
-    let success: Bool
-    let friends: [Friend]
+struct Response: Codable {
+    let isError: Bool? // Adjusted to Bool for clarity
+    let data: ChatData?
 }
 
+struct ChatData: Codable {
+    let filteredChats: [Chat]?
+}
 
-struct Friend: Codable {
-    let id: Int
-    let username: String?
-    let gender: String?
-    let country: String?
-    let statusMessage: String?
-    let profilePicture: ProfilePicture
-    let level: Int?
-    let appearance: String?
+struct Chat: Codable {
+    let v: Int?
+    let id: String?
+    let createdAt: String?
+    let updatedAt: String?
+    let lastMessageAt: String?
+    let lastMessageStatus: String?
+    let unreadMessageCount: [String: Int]? // Assuming it's a dictionary
+    let members: [Member]
     
     enum CodingKeys: String, CodingKey {
-        case id
-        case username
-        case gender
-        case country
-        case statusMessage = "status_message"
-        case profilePicture = "profile_picture"
-        case level
-        case appearance
-        
+        case v = "__v"
+        case id = "_id"
+        case createdAt
+        case updatedAt
+        case lastMessageAt
+        case lastMessageStatus
+        case unreadMessageCount
+        case members
     }
+}
+
+struct Member: Codable {
+    let id: String?
+    let accountName: String?
+    let avatar: Avatar?
     
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case accountName
+        case avatar
+    }
 }
 
-
-struct ProfilePicture: Codable {
-    let url: String?
-    let thumb:Small
-    let small:Small
-}
-
-
-struct Small: Codable {
-    let url: String?
+struct Avatar: Codable {
+    let id: String?
+    let src: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case src
+    }
 }
