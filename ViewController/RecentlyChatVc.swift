@@ -18,6 +18,7 @@ class RecentlyChatVc: UIViewController {
         super.viewDidLoad()
         self.updateUi()
         self.registerXib()
+        self.getAllData()
         // Do any additional setup after loading the view.
     }
     
@@ -49,6 +50,24 @@ class RecentlyChatVc: UIViewController {
             iconView.image = iconView.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
             iconView.tintColor  = UIColor(red: 161.0/255, green: 161.0/255, blue: 161.0/255, alpha: 1.0)
         }
+    }
+    func getAllData() {
+        
+        let fetchFriendsChat = FetchAllFriendsChat()
+        fetchFriendsChat.authorizationKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWY4MDVkNGY0ZTRmOWU5OWI5ZTQ3MDMiLCJhY2NvdW50TmFtZSI6ImlyYmF6SGV5d293LTEiLCJlbWFpbCI6ImlyYmF6MjAwMEBnbWFpbC5jb20iLCJlbWFpbFZlcmlmaWVkIjp0cnVlLCJhY2NvdW50SWQiOjIyNSwicGhvbmVOdW1iZXIiOiIiLCJpYXQiOjE3Mjk1NzAzMDYsImV4cCI6MTczMDQzNDMwNiwiYXVkIjoiVVNFUiIsInN1YiI6IkFVVEgifQ.2zQFZH2t9YmcREym9pWqGftMj8SadKWrM8ipQlw4zkw"
+
+        fetchFriendsChat.fetchAllFriends { result in
+            switch result {
+            case .success(let friendsProfile):
+                // Handle success - you have the FriendsProfile object
+                print("Fetched friends: \(friendsProfile.friends)")
+                
+            case .failure(let error):
+                // Handle error
+                print("Error fetching friends: \(error.localizedDescription)")
+            }
+        }
+
     }
     
     func registerXib () {

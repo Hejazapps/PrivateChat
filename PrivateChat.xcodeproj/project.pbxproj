@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C836E19A2CC6D2DC0031CE81 /* FetchAllFriendsChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836E1992CC6D2DC0031CE81 /* FetchAllFriendsChat.swift */; };
+		C836E19C2CC6D2EE0031CE81 /* Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836E19B2CC6D2EB0031CE81 /* Decode.swift */; };
 		C8C5CC4D2CB53A1C00FDA156 /* RecentlyChatVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C5CC4C2CB53A1C00FDA156 /* RecentlyChatVc.swift */; };
 		C8C5CC672CB56EE000FDA156 /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8C5CC662CB56EE000FDA156 /* ProfileCell.xib */; };
 		C8C5CC682CB56EE000FDA156 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C5CC652CB56EE000FDA156 /* ProfileCell.swift */; };
@@ -32,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C836E1992CC6D2DC0031CE81 /* FetchAllFriendsChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAllFriendsChat.swift; sourceTree = "<group>"; };
+		C836E19B2CC6D2EB0031CE81 /* Decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decode.swift; sourceTree = "<group>"; };
 		C8C5CC172CB539CC00FDA156 /* PrivateChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrivateChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8C5CC2D2CB539CD00FDA156 /* PrivateChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrivateChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8C5CC372CB539CD00FDA156 /* PrivateChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrivateChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +105,7 @@
 		C8C5CC0E2CB539CB00FDA156 = {
 			isa = PBXGroup;
 			children = (
+				C836E19B2CC6D2EB0031CE81 /* Decode.swift */,
 				C8C5CC642CB56EC200FDA156 /* Cell */,
 				C8C5CC4B2CB539E300FDA156 /* ViewController */,
 				C8C5CC192CB539CC00FDA156 /* PrivateChat */,
@@ -123,6 +128,7 @@
 		C8C5CC4B2CB539E300FDA156 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C836E1992CC6D2DC0031CE81 /* FetchAllFriendsChat.swift */,
 				C8C5CC4C2CB53A1C00FDA156 /* RecentlyChatVc.swift */,
 			);
 			path = ViewController;
@@ -286,6 +292,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8C5CC4D2CB53A1C00FDA156 /* RecentlyChatVc.swift in Sources */,
+				C836E19A2CC6D2DC0031CE81 /* FetchAllFriendsChat.swift in Sources */,
+				C836E19C2CC6D2EE0031CE81 /* Decode.swift in Sources */,
 				C8C5CC6C2CB5782F00FDA156 /* DetailCell.swift in Sources */,
 				C8C5CC682CB56EE000FDA156 /* ProfileCell.swift in Sources */,
 			);
