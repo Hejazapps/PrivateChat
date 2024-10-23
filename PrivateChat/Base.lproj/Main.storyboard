@@ -90,16 +90,16 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Messages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yA8-0g-rlf">
-                                        <rect key="frame" x="24.999999999999993" y="220" width="107.33333333333331" height="21"/>
+                                        <rect key="frame" x="24.999999999999993" y="210" width="107.33333333333331" height="21"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DJ7-BE-BW6">
-                                        <rect key="frame" x="0.0" y="251" width="393" height="601"/>
+                                        <rect key="frame" x="0.0" y="241" width="393" height="611"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jaW-sQ-NiV">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="601"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="611"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="s02-1f-23y"/>
@@ -132,7 +132,7 @@
                                     <constraint firstItem="zLg-mG-u3T" firstAttribute="leading" secondItem="oRj-BD-yg6" secondAttribute="leading" id="hoj-Ky-0ww"/>
                                     <constraint firstItem="YzR-MK-btP" firstAttribute="leading" secondItem="oRj-BD-yg6" secondAttribute="leading" id="lgI-S1-doA"/>
                                     <constraint firstItem="zLg-mG-u3T" firstAttribute="top" secondItem="oRj-BD-yg6" secondAttribute="top" id="t3f-1g-bZh"/>
-                                    <constraint firstItem="yA8-0g-rlf" firstAttribute="top" secondItem="YzR-MK-btP" secondAttribute="bottom" constant="30" id="vqN-fs-wMi"/>
+                                    <constraint firstItem="yA8-0g-rlf" firstAttribute="top" secondItem="YzR-MK-btP" secondAttribute="bottom" constant="20" id="vqN-fs-wMi"/>
                                 </constraints>
                             </view>
                         </subviews>
