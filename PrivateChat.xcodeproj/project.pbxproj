@@ -14,6 +14,7 @@
 		C84E791E2CC911DB009F1B5D /* PrivateChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E791D2CC911DB009F1B5D /* PrivateChat.swift */; };
 		C84E79682CC9454F009F1B5D /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C84E79672CC9454F009F1B5D /* IQKeyboardManagerSwift */; };
 		C84E79962CC95FCC009F1B5D /* FetchPreviousMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E79952CC95FC3009F1B5D /* FetchPreviousMessages.swift */; };
+		C87BFE032CCAEFDD004813D6 /* GrowingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87BFE022CCAEFDD004813D6 /* GrowingTextView.swift */; };
 		C8BA26D52CCA0F9500B44FF7 /* UserChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA26D32CCA0F9500B44FF7 /* UserChatCell.swift */; };
 		C8BA26D62CCA0F9500B44FF7 /* UserChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8BA26D42CCA0F9500B44FF7 /* UserChatCell.xib */; };
 		C8BA26D82CCA10F800B44FF7 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA26D72CCA10F800B44FF7 /* PaddingLabel.swift */; };
@@ -48,6 +49,7 @@
 		C836E19B2CC6D2EB0031CE81 /* Decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decode.swift; sourceTree = "<group>"; };
 		C84E791D2CC911DB009F1B5D /* PrivateChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateChat.swift; sourceTree = "<group>"; };
 		C84E79952CC95FC3009F1B5D /* FetchPreviousMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPreviousMessages.swift; sourceTree = "<group>"; };
+		C87BFE022CCAEFDD004813D6 /* GrowingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowingTextView.swift; sourceTree = "<group>"; };
 		C8BA26D32CCA0F9500B44FF7 /* UserChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChatCell.swift; sourceTree = "<group>"; };
 		C8BA26D42CCA0F9500B44FF7 /* UserChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserChatCell.xib; sourceTree = "<group>"; };
 		C8BA26D72CCA10F800B44FF7 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				C8BA26D72CCA10F800B44FF7 /* PaddingLabel.swift */,
+				C87BFE022CCAEFDD004813D6 /* GrowingTextView.swift */,
 				C836E19B2CC6D2EB0031CE81 /* Decode.swift */,
 				C8C5CC642CB56EC200FDA156 /* Cell */,
 				C8C5CC4B2CB539E300FDA156 /* ViewController */,
@@ -335,6 +338,7 @@
 				C8C5CC682CB56EE000FDA156 /* ProfileCell.swift in Sources */,
 				C8BA26D52CCA0F9500B44FF7 /* UserChatCell.swift in Sources */,
 				C84E79962CC95FCC009F1B5D /* FetchPreviousMessages.swift in Sources */,
+				C87BFE032CCAEFDD004813D6 /* GrowingTextView.swift in Sources */,
 				C84E791E2CC911DB009F1B5D /* PrivateChat.swift in Sources */,
 				C8BA26DB2CCA131300B44FF7 /* ReplyChatCell.swift in Sources */,
 			);

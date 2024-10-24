@@ -25,6 +25,7 @@ class FetchPreviousMessages {
             return
         }
        
+        print("api url \(apiUrl)")
         
         
         var request = URLRequest(url: apiUrl)
@@ -63,6 +64,7 @@ class FetchPreviousMessages {
                     for chat in chatData {
                         self.fetchList.append(chat)
                     }
+                    self.currentPage = self.currentPage + 1
                     print("data i found \(self.fetchList)")
                 } else {
                     print("No chat data available.")

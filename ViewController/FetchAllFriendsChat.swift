@@ -51,6 +51,11 @@ class FetchAllFriendsChat {
                 let decoder = JSONDecoder()
                 
              
+                if let convertedJsonIntoDict = try JSONSerialization.jsonObject(with: data, options: []) as? Dictionary<String, Any> {
+                    
+                    print("hello data \(convertedJsonIntoDict)")
+                }
+                
                 
                 let userProfile = try decoder.decode(Response.self, from: data)
                 

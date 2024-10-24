@@ -13,8 +13,9 @@ class ReplyChatCell: UITableViewCell {
     @IBOutlet weak var lbl: PaddingLabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-       // self.transform = CGAffineTransform(scaleX: 1, y: -1)
-        // Initialization code
+       
+        
+        self.transform = CGAffineTransform(scaleX: 1, y: -1)
         
         self.configureCell(messageType: .received, cornerRadius: 15.0)
     }

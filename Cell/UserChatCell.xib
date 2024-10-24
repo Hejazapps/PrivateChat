@@ -5,21 +5,20 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserChatCell" id="KGk-i7-Jjw" customClass="UserChatCell" customModule="PrivateChat" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserChatCell" rowHeight="91" id="KGk-i7-Jjw" customClass="UserChatCell" customModule="PrivateChat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="2072" height="91"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
+                <rect key="frame" x="0.0" y="0.0" width="2072" height="91"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2iQ-Ry-qCl" customClass="PaddingLabel" customModule="PrivateChat" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="0.0"/>
+                        <rect key="frame" x="0.0" y="0.0" width="2072" height="0.0"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" id="46U-Ip-zgp"/>
@@ -28,33 +27,23 @@
                         <color key="textColor" red="0.63137254899999995" green="0.71764705880000002" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bi3-R8-jtT" customClass="PaddingLabel" customModule="PrivateChat" customModuleProvider="target">
-                        <rect key="frame" x="81" y="0.0" width="224" height="548"/>
-                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <string key="text">Cows have been companions to humans for thousands of years, playing a crucial role in agriculture and our daily lives. They are not only a source of milk, cheese, and meat, but they also contribute to sustainable farming practices through their natural grazing habits. Their ability to convert grass into high-quality protein is truly remarkable.
-
-Beyond their practical contributions, cows are known for their gentle nature and social behaviors. They form strong bonds with one another and can recognize individual faces, displaying a level of emotional intelligence that often surprises us. Observing their interactions in a pasture can be a peaceful and heartwarming experience.</string>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bi3-R8-jtT" customClass="PaddingLabel" customModule="PrivateChat" customModuleProvider="target">
+                        <rect key="frame" x="2052" y="0.0" width="0.0" height="76"/>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Gp-Jj-56c">
-                        <rect key="frame" x="0.0" y="548" width="320" height="152"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="bi3-R8-jtT" firstAttribute="top" secondItem="2iQ-Ry-qCl" secondAttribute="bottom" id="5ug-Vb-Dt6"/>
-                    <constraint firstItem="bi3-R8-jtT" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.7" id="BfG-vO-TZo"/>
+                    <constraint firstAttribute="bottom" secondItem="bi3-R8-jtT" secondAttribute="bottom" constant="15" id="7qO-Uy-Ucq"/>
                     <constraint firstItem="2iQ-Ry-qCl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Di7-OP-6rE"/>
                     <constraint firstItem="2iQ-Ry-qCl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Dx8-qC-o6i"/>
-                    <constraint firstAttribute="bottom" secondItem="5Gp-Jj-56c" secondAttribute="bottom" id="LMB-Fp-n3V"/>
-                    <constraint firstAttribute="trailing" secondItem="bi3-R8-jtT" secondAttribute="trailing" constant="15" id="Qbz-nZ-dXo"/>
+                    <constraint firstAttribute="trailing" secondItem="bi3-R8-jtT" secondAttribute="trailing" constant="20" id="Qbz-nZ-dXo"/>
                     <constraint firstAttribute="trailing" secondItem="2iQ-Ry-qCl" secondAttribute="trailing" id="VrP-kx-OtK"/>
-                    <constraint firstAttribute="trailing" secondItem="5Gp-Jj-56c" secondAttribute="trailing" id="WqD-vI-zSf"/>
-                    <constraint firstItem="5Gp-Jj-56c" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Xg5-E9-VmW"/>
-                    <constraint firstItem="5Gp-Jj-56c" firstAttribute="top" secondItem="bi3-R8-jtT" secondAttribute="bottom" id="sA1-cu-YOo"/>
+                    <constraint firstItem="bi3-R8-jtT" firstAttribute="width" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.7" id="iRD-Dv-KpG"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -63,12 +52,7 @@ Beyond their practical contributions, cows are known for their gentle nature and
                 <outlet property="dateLbl" destination="2iQ-Ry-qCl" id="09C-da-NKS"/>
                 <outlet property="lbl" destination="bi3-R8-jtT" id="jUc-1f-icT"/>
             </connections>
-            <point key="canvasLocation" x="56" y="-11"/>
+            <point key="canvasLocation" x="1429.0076335877861" y="-337.67605633802816"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>
