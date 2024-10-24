@@ -10,6 +10,7 @@ import SDWebImage
 
 class RecentlyChatVc: UIViewController {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     let gap:CGFloat = 10
     @IBOutlet weak var frequentlyChattedCollectionView: UICollectionView!
     let fetchFriendsChat = FetchAllFriendsChat()
@@ -25,6 +26,7 @@ class RecentlyChatVc: UIViewController {
     
     func updateUi() {
         
+        activityIndicator.isHidden = true
         recentTableView.separatorColor = UIColor.clear
         
         searchBar.barTintColor = UIColor.clear
@@ -39,7 +41,7 @@ class RecentlyChatVc: UIViewController {
         
         searchField.backgroundColor = UIColor.black
         searchField.textColor = UIColor.white
-        searchField.inputAccessoryView = createToolbar()
+        
         
         
         searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: "Search chat here..", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 76.0/255, green: 76.0/255, blue: 76.0/255, alpha: 1.0)])
@@ -81,23 +83,7 @@ class RecentlyChatVc: UIViewController {
         
     }
     
-    
-    func createToolbar() -> UIToolbar {
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        
-        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped))
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        
-        toolbar.items = [flexibleSpace, doneButton]
-        return toolbar
-    }
-    
-    
-    @objc func doneButtonTapped() {
-        // Dismiss the keyboard
-        searchBar.resignFirstResponder()
-    }
+
 }
 
 extension RecentlyChatVc: UITableViewDataSource,UITableViewDelegate {
@@ -129,11 +115,14 @@ extension RecentlyChatVc: UITableViewDataSource,UITableViewDelegate {
         
         
         if indexPath.row == fetchFriendsChat.fetchList.count - 1 , fetchFriendsChat.shouldFetch {
-            
+            activityIndicator.startAnimating();
+            activityIndicator.isHidden = false
             fetchFriendsChat.fetchAllFriends { result in
                 
                 DispatchQueue.main.async {
                     tableView.reloadData()
+                    self.activityIndicator.isHidden = true
+                    self.activityIndicator.stopAnimating()
                     self.recentTableView.reloadData()
                 }
             }
@@ -161,7 +150,13 @@ extension RecentlyChatVc: UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let obj = fetchFriendsChat.fetchList[indexPath.row]
+        let vc = storyboard.instantiateViewController(withIdentifier: "PrivateChat") as! PrivateChat
+        vc.obj = obj
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
+       
         
     }
     

@@ -11,6 +11,14 @@
 		C836E19C2CC6D2EE0031CE81 /* Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836E19B2CC6D2EB0031CE81 /* Decode.swift */; };
 		C841917D2CC8257F00C8B5CC /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C841917C2CC8257F00C8B5CC /* SDWebImage */; };
 		C841917F2CC8257F00C8B5CC /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C841917E2CC8257F00C8B5CC /* SDWebImageMapKit */; };
+		C84E791E2CC911DB009F1B5D /* PrivateChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E791D2CC911DB009F1B5D /* PrivateChat.swift */; };
+		C84E79682CC9454F009F1B5D /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C84E79672CC9454F009F1B5D /* IQKeyboardManagerSwift */; };
+		C84E79962CC95FCC009F1B5D /* FetchPreviousMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E79952CC95FC3009F1B5D /* FetchPreviousMessages.swift */; };
+		C8BA26D52CCA0F9500B44FF7 /* UserChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA26D32CCA0F9500B44FF7 /* UserChatCell.swift */; };
+		C8BA26D62CCA0F9500B44FF7 /* UserChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8BA26D42CCA0F9500B44FF7 /* UserChatCell.xib */; };
+		C8BA26D82CCA10F800B44FF7 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA26D72CCA10F800B44FF7 /* PaddingLabel.swift */; };
+		C8BA26DB2CCA131300B44FF7 /* ReplyChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA26D92CCA131300B44FF7 /* ReplyChatCell.swift */; };
+		C8BA26DC2CCA131300B44FF7 /* ReplyChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8BA26DA2CCA131300B44FF7 /* ReplyChatCell.xib */; };
 		C8C5CC4D2CB53A1C00FDA156 /* RecentlyChatVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C5CC4C2CB53A1C00FDA156 /* RecentlyChatVc.swift */; };
 		C8C5CC672CB56EE000FDA156 /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8C5CC662CB56EE000FDA156 /* ProfileCell.xib */; };
 		C8C5CC682CB56EE000FDA156 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C5CC652CB56EE000FDA156 /* ProfileCell.swift */; };
@@ -38,6 +46,13 @@
 /* Begin PBXFileReference section */
 		C836E1992CC6D2DC0031CE81 /* FetchAllFriendsChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAllFriendsChat.swift; sourceTree = "<group>"; };
 		C836E19B2CC6D2EB0031CE81 /* Decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decode.swift; sourceTree = "<group>"; };
+		C84E791D2CC911DB009F1B5D /* PrivateChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateChat.swift; sourceTree = "<group>"; };
+		C84E79952CC95FC3009F1B5D /* FetchPreviousMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPreviousMessages.swift; sourceTree = "<group>"; };
+		C8BA26D32CCA0F9500B44FF7 /* UserChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChatCell.swift; sourceTree = "<group>"; };
+		C8BA26D42CCA0F9500B44FF7 /* UserChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserChatCell.xib; sourceTree = "<group>"; };
+		C8BA26D72CCA10F800B44FF7 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		C8BA26D92CCA131300B44FF7 /* ReplyChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyChatCell.swift; sourceTree = "<group>"; };
+		C8BA26DA2CCA131300B44FF7 /* ReplyChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyChatCell.xib; sourceTree = "<group>"; };
 		C8C5CC172CB539CC00FDA156 /* PrivateChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrivateChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8C5CC2D2CB539CD00FDA156 /* PrivateChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrivateChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8C5CC372CB539CD00FDA156 /* PrivateChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrivateChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +101,7 @@
 			files = (
 				C841917F2CC8257F00C8B5CC /* SDWebImageMapKit in Frameworks */,
 				C841917D2CC8257F00C8B5CC /* SDWebImage in Frameworks */,
+				C84E79682CC9454F009F1B5D /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +125,7 @@
 		C8C5CC0E2CB539CB00FDA156 = {
 			isa = PBXGroup;
 			children = (
+				C8BA26D72CCA10F800B44FF7 /* PaddingLabel.swift */,
 				C836E19B2CC6D2EB0031CE81 /* Decode.swift */,
 				C8C5CC642CB56EC200FDA156 /* Cell */,
 				C8C5CC4B2CB539E300FDA156 /* ViewController */,
@@ -132,8 +149,10 @@
 		C8C5CC4B2CB539E300FDA156 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C84E79952CC95FC3009F1B5D /* FetchPreviousMessages.swift */,
 				C836E1992CC6D2DC0031CE81 /* FetchAllFriendsChat.swift */,
 				C8C5CC4C2CB53A1C00FDA156 /* RecentlyChatVc.swift */,
+				C84E791D2CC911DB009F1B5D /* PrivateChat.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -145,6 +164,10 @@
 				C8C5CC662CB56EE000FDA156 /* ProfileCell.xib */,
 				C8C5CC692CB5782F00FDA156 /* DetailCell.swift */,
 				C8C5CC6A2CB5782F00FDA156 /* DetailCell.xib */,
+				C8BA26D32CCA0F9500B44FF7 /* UserChatCell.swift */,
+				C8BA26D42CCA0F9500B44FF7 /* UserChatCell.xib */,
+				C8BA26D92CCA131300B44FF7 /* ReplyChatCell.swift */,
+				C8BA26DA2CCA131300B44FF7 /* ReplyChatCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -171,6 +194,7 @@
 			packageProductDependencies = (
 				C841917C2CC8257F00C8B5CC /* SDWebImage */,
 				C841917E2CC8257F00C8B5CC /* SDWebImageMapKit */,
+				C84E79672CC9454F009F1B5D /* IQKeyboardManagerSwift */,
 			);
 			productName = PrivateChat;
 			productReference = C8C5CC172CB539CC00FDA156 /* PrivateChat.app */;
@@ -256,6 +280,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				C841917B2CC8257F00C8B5CC /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				C84E79662CC9454F009F1B5D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C8C5CC182CB539CC00FDA156 /* Products */;
@@ -274,7 +299,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8BA26D62CCA0F9500B44FF7 /* UserChatCell.xib in Resources */,
 				C8C5CC672CB56EE000FDA156 /* ProfileCell.xib in Resources */,
+				C8BA26DC2CCA131300B44FF7 /* ReplyChatCell.xib in Resources */,
 				C8C5CC6B2CB5782F00FDA156 /* DetailCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,11 +327,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8BA26D82CCA10F800B44FF7 /* PaddingLabel.swift in Sources */,
 				C8C5CC4D2CB53A1C00FDA156 /* RecentlyChatVc.swift in Sources */,
 				C836E19A2CC6D2DC0031CE81 /* FetchAllFriendsChat.swift in Sources */,
 				C836E19C2CC6D2EE0031CE81 /* Decode.swift in Sources */,
 				C8C5CC6C2CB5782F00FDA156 /* DetailCell.swift in Sources */,
 				C8C5CC682CB56EE000FDA156 /* ProfileCell.swift in Sources */,
+				C8BA26D52CCA0F9500B44FF7 /* UserChatCell.swift in Sources */,
+				C84E79962CC95FCC009F1B5D /* FetchPreviousMessages.swift in Sources */,
+				C84E791E2CC911DB009F1B5D /* PrivateChat.swift in Sources */,
+				C8BA26DB2CCA131300B44FF7 /* ReplyChatCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,6 +665,14 @@
 				minimumVersion = 5.19.7;
 			};
 		};
+		C84E79662CC9454F009F1B5D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -645,6 +685,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C841917B2CC8257F00C8B5CC /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
+		};
+		C84E79672CC9454F009F1B5D /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C84E79662CC9454F009F1B5D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

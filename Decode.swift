@@ -51,3 +51,42 @@ struct Avatar: Codable {
         case src
     }
 }
+
+
+struct Message: Codable {
+    let id: String
+    let chat: String
+    let createdAt: String
+    let files: [File]
+    let message: String
+    let sender: String
+    let status: MessageStatus
+
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case chat
+        case createdAt
+        case files
+        case message
+        case sender
+        case status
+    }
+}
+
+// MARK: - File
+struct File: Codable {
+    // Define file properties here if needed
+}
+
+// MARK: - MessageStatus
+enum MessageStatus: String, Codable {
+    case sent = "SENT"
+    // Add other statuses if necessary
+}
+
+// MARK: - Response
+struct Response1: Codable {
+    let data: [Message]?
+}
+
+// MARK
