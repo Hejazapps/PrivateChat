@@ -16,8 +16,11 @@ class LeftViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        messageContainerView.rounded(radius: 12)
+      
         
+        messageContainerView.layer.cornerRadius = 15.0
+        messageContainerView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMinYCorner]
+        messageContainerView.layer.masksToBounds = true
         self.transform = CGAffineTransform(scaleX: 1, y: -1)
         contentView.backgroundColor = .clear
         backgroundColor = .clear
@@ -25,15 +28,9 @@ class LeftViewCell: UITableViewCell {
     
     func configureCell(text: String ,date: String) {
         textMessageLabel.text = text
-        timeLabel.text = date
     }
+    
+    
     
 }
 
-
-extension UIView {
-    func rounded(radius: CGFloat) {
-        self.layer.cornerRadius = radius
-        self.clipsToBounds = true
-    }
-}
