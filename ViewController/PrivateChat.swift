@@ -29,6 +29,25 @@ class PrivateChat: UIViewController {
         self.dismiss(animated: true)
     }
     
+    func extractHourAndMinute12HourFormat(from timestamp: String) -> String? {
+        // Create a DateFormatter to parse the input string
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        
+        // Convert the string to a Date
+        if let date = dateFormatter.date(from: timestamp) {
+            // Create another DateFormatter to format the Date to "hh:mm a"
+            let hourMinuteFormatter = DateFormatter()
+            hourMinuteFormatter.dateFormat = "hh:mm a"
+            
+            // Get the hour and minute as a string
+            return hourMinuteFormatter.string(from: date)
+        } else {
+            // Return nil if the date format is invalid
+            return nil
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -91,17 +110,17 @@ extension PrivateChat: UITableViewDataSource {
         
         print("message i found \(obj.message)")
         if obj.sender == userid {
-            let userChatCell = tableView.dequeueReusableCell(withIdentifier: "UserChatCell", for: indexPath) as! UserChatCell
+            let userChatCell = tableView.dequeueReusableCell(withIdentifier: "RightViewCell", for: indexPath) as! RightViewCell
             userChatCell.selectionStyle = .none
-            userChatCell.lbl.text = obj.message
-            tableView.reloadRows(at: [indexPath], with: .none)
+            print("date i got \(obj.createdAt)")
+            userChatCell.configureCell(text: obj.message, date: self.extractHourAndMinute12HourFormat(from: obj.createdAt) ?? "")
+            
             return userChatCell
         }
         
-        let replyChatCell = tableView.dequeueReusableCell(withIdentifier: "ReplyChatCell", for: indexPath) as! ReplyChatCell
+        let replyChatCell = tableView.dequeueReusableCell(withIdentifier: "LeftViewCell", for: indexPath) as! LeftViewCell
         replyChatCell.selectionStyle = .none
-        replyChatCell.lbl.text = obj.message
-        tableView.reloadRows(at: [indexPath], with: .none)
+        replyChatCell.configureCell(text: obj.message, date: self.extractHourAndMinute12HourFormat(from: obj.createdAt) ?? "")
         return replyChatCell
     }
 }
@@ -146,8 +165,8 @@ private extension PrivateChat {
         
        
         
-        tableView.register(UINib(nibName: "UserChatCell", bundle: nil), forCellReuseIdentifier: "UserChatCell")
-        tableView.register(UINib(nibName: "ReplyChatCell", bundle: nil), forCellReuseIdentifier: "ReplyChatCell")
+        tableView.register(UINib(nibName: "RightViewCell", bundle: nil), forCellReuseIdentifier: "RightViewCell")
+        tableView.register(UINib(nibName: "LeftViewCell", bundle: nil), forCellReuseIdentifier: "LeftViewCell")
         
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.separatorColor = UIColor.clear
