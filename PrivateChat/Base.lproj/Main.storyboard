@@ -280,16 +280,13 @@
                                                     <outlet property="delegate" destination="3Hy-uN-c9a" id="WDJ-BG-vcg"/>
                                                 </connections>
                                             </tableView>
-                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="6oG-WV-nMm">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="20"/>
-                                            </activityIndicatorView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tIL-nm-iHy">
                                                 <rect key="frame" x="0.0" y="627" width="393" height="80"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="alq-3R-lI0">
                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="60"/>
                                                         <subviews>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TUd-ou-D3t" customClass="GrowingTextView" customModule="iNwe" customModuleProvider="target">
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TUd-ou-D3t" customClass="GrowingTextView" customModule="PrivateChat" customModuleProvider="target">
                                                                 <rect key="frame" x="40" y="10" width="273" height="50"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -346,6 +343,9 @@
                                                     <constraint firstItem="dKp-df-Vih" firstAttribute="top" secondItem="alq-3R-lI0" secondAttribute="bottom" id="oTl-Zx-daf"/>
                                                 </constraints>
                                             </view>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="6oG-WV-nMm">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="20"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>

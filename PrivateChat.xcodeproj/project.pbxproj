@@ -21,6 +21,7 @@
 		C8C5CC682CB56EE000FDA156 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C5CC652CB56EE000FDA156 /* ProfileCell.swift */; };
 		C8C5CC6B2CB5782F00FDA156 /* DetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8C5CC6A2CB5782F00FDA156 /* DetailCell.xib */; };
 		C8C5CC6C2CB5782F00FDA156 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C5CC692CB5782F00FDA156 /* DetailCell.swift */; };
+		C8D76BDC2CCCD53A0009B80A /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = C8D76BDB2CCCD53A0009B80A /* SocketIO */; };
 		C8FC48402CCC16EB008815E9 /* LeftViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8FC483D2CCC16EB008815E9 /* LeftViewCell.xib */; };
 		C8FC48412CCC16EB008815E9 /* RightViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8FC483B2CCC16EB008815E9 /* RightViewCell.xib */; };
 		C8FC48422CCC16EB008815E9 /* LeftViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FC483E2CCC16EB008815E9 /* LeftViewCell.swift */; };
@@ -102,6 +103,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C841917F2CC8257F00C8B5CC /* SDWebImageMapKit in Frameworks */,
+				C8D76BDC2CCCD53A0009B80A /* SocketIO in Frameworks */,
 				C841917D2CC8257F00C8B5CC /* SDWebImage in Frameworks */,
 				C84E79682CC9454F009F1B5D /* IQKeyboardManagerSwift in Frameworks */,
 			);
@@ -206,6 +208,7 @@
 				C841917C2CC8257F00C8B5CC /* SDWebImage */,
 				C841917E2CC8257F00C8B5CC /* SDWebImageMapKit */,
 				C84E79672CC9454F009F1B5D /* IQKeyboardManagerSwift */,
+				C8D76BDB2CCCD53A0009B80A /* SocketIO */,
 			);
 			productName = PrivateChat;
 			productReference = C8C5CC172CB539CC00FDA156 /* PrivateChat.app */;
@@ -292,6 +295,7 @@
 			packageReferences = (
 				C841917B2CC8257F00C8B5CC /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				C84E79662CC9454F009F1B5D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				C8D76BDA2CCCD53A0009B80A /* XCRemoteSwiftPackageReference "socket" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C8C5CC182CB539CC00FDA156 /* Products */;
@@ -685,6 +689,14 @@
 				minimumVersion = 7.2.0;
 			};
 		};
+		C8D76BDA2CCCD53A0009B80A /* XCRemoteSwiftPackageReference "socket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -702,6 +714,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C84E79662CC9454F009F1B5D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		C8D76BDB2CCCD53A0009B80A /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C8D76BDA2CCCD53A0009B80A /* XCRemoteSwiftPackageReference "socket" */;
+			productName = SocketIO;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
