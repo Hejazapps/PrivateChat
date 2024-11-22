@@ -14,6 +14,7 @@
 		C84E791E2CC911DB009F1B5D /* PrivateChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E791D2CC911DB009F1B5D /* PrivateChat.swift */; };
 		C84E79682CC9454F009F1B5D /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C84E79672CC9454F009F1B5D /* IQKeyboardManagerSwift */; };
 		C84E79962CC95FCC009F1B5D /* FetchPreviousMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E79952CC95FC3009F1B5D /* FetchPreviousMessages.swift */; };
+		C86E68E12CF0C1E200DB4772 /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86E68E02CF0C1E100DB4772 /* SocketService.swift */; };
 		C87BFE032CCAEFDD004813D6 /* GrowingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87BFE022CCAEFDD004813D6 /* GrowingTextView.swift */; };
 		C8BA26D82CCA10F800B44FF7 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BA26D72CCA10F800B44FF7 /* PaddingLabel.swift */; };
 		C8C5CC4D2CB53A1C00FDA156 /* RecentlyChatVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C5CC4C2CB53A1C00FDA156 /* RecentlyChatVc.swift */; };
@@ -50,6 +51,7 @@
 		C836E19B2CC6D2EB0031CE81 /* Decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decode.swift; sourceTree = "<group>"; };
 		C84E791D2CC911DB009F1B5D /* PrivateChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateChat.swift; sourceTree = "<group>"; };
 		C84E79952CC95FC3009F1B5D /* FetchPreviousMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPreviousMessages.swift; sourceTree = "<group>"; };
+		C86E68E02CF0C1E100DB4772 /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
 		C87BFE022CCAEFDD004813D6 /* GrowingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowingTextView.swift; sourceTree = "<group>"; };
 		C8BA26D72CCA10F800B44FF7 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		C8C5CC172CB539CC00FDA156 /* PrivateChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrivateChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +131,7 @@
 		C8C5CC0E2CB539CB00FDA156 = {
 			isa = PBXGroup;
 			children = (
+				C86E68E02CF0C1E100DB4772 /* SocketService.swift */,
 				C8FC483F2CCC16EB008815E9 /* ChatDetails */,
 				C8BA26D72CCA10F800B44FF7 /* PaddingLabel.swift */,
 				C87BFE022CCAEFDD004813D6 /* GrowingTextView.swift */,
@@ -348,6 +351,7 @@
 				C836E19C2CC6D2EE0031CE81 /* Decode.swift in Sources */,
 				C8FC48422CCC16EB008815E9 /* LeftViewCell.swift in Sources */,
 				C8FC48432CCC16EB008815E9 /* RightViewCell.swift in Sources */,
+				C86E68E12CF0C1E200DB4772 /* SocketService.swift in Sources */,
 				C8C5CC6C2CB5782F00FDA156 /* DetailCell.swift in Sources */,
 				C8C5CC682CB56EE000FDA156 /* ProfileCell.swift in Sources */,
 				C84E79962CC95FCC009F1B5D /* FetchPreviousMessages.swift in Sources */,

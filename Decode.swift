@@ -5,7 +5,7 @@ struct Response: Codable {
 }
 
 struct ChatData: Codable {
-    let filteredChats: [Chat]?
+    let chats: [Chat]?
 }
 
 struct Chat: Codable {

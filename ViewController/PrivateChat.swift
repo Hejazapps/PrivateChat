@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SocketIO
 
 class PrivateChat: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -24,6 +25,8 @@ class PrivateChat: UIViewController {
     var isKeyboardShowing = false
     
     var obj: Chat?
+    
+    //  self.mainArray.insert(obj, at: 0)
     
     @IBAction func gotoPreviousView(_ sender: Any) {
         self.dismiss(animated: true)
@@ -59,7 +62,14 @@ class PrivateChat: UIViewController {
         self.seUpUI()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tapGesture)
-    }
+        
+        let jwtToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzNmMDY3Y2Q2NTc2YTZhNDgzNTY0NDQiLCJyb2xlIjoiVVNFUiIsImFjY291bnROYW1lIjoiYWFyYXZfMDkxIiwiZW1haWwiOiJ0ZXN0dXNlcjFAZ21haWwuY29tIiwiZW1haWxWZXJpZmllZCI6dHJ1ZSwiYWNjb3VudElkIjoxLCJwaG9uZU51bWJlciI6Ijk4NzY1NDMyMTAiLCJpYXQiOjE3MzIzMjU1NDQsImV4cCI6MTczMzE4OTU0NCwiYXVkIjoiVVNFUiIsInN1YiI6IkFVVEgifQ.3ZR77-nZ6GrHi8ByqEmbtcWEpPGv3ORoFo6QomYnuhw"
+
+        // Initialize the socket connection with the JWT token
+        SocketManagerHelper.shared.setupSocket(withAuthToken: jwtToken)
+        
+      }
+
     
     @objc func dismissKeyboard() {
         
@@ -72,10 +82,16 @@ class PrivateChat: UIViewController {
     
     @objc func keyboardWillHide(_ notification: Notification) {
         
-
+        
         tableView.reloadData()
         isKeyboardShowing = false
         self.bottomSpaceView.constant = 0
+        
+    }
+    
+    @IBAction func sendMessage(_ sender: Any) {
+        
+         
         
     }
     
@@ -94,7 +110,7 @@ class PrivateChat: UIViewController {
             let keyboardHeight = keyboardFrame.height
             
             self.bottomSpaceView.constant = keyboardHeight
-             
+            
         }
         
         
@@ -140,7 +156,7 @@ extension PrivateChat: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         print("fetch is called here")
         if indexPath.row == previousChat.fetchList.count - 1 , previousChat.shouldFetch {
-           
+            
             activityIndicator.startAnimating();
             activityIndicator.isHidden = false
             getAllData()
@@ -163,7 +179,7 @@ private extension PrivateChat {
         imv.clipsToBounds = true
         self.getAllData()
         
-       
+        
         
         tableView.register(UINib(nibName: "RightViewCell", bundle: nil), forCellReuseIdentifier: "RightViewCell")
         tableView.register(UINib(nibName: "LeftViewCell", bundle: nil), forCellReuseIdentifier: "LeftViewCell")
@@ -177,12 +193,12 @@ private extension PrivateChat {
         
         print("id has been selected \(obj?.id ?? "")")
         previousChat.chatId = obj?.id ?? ""
-        previousChat.authorizationKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWY4MDVkNGY0ZTRmOWU5OWI5ZTQ3MDMiLCJhY2NvdW50TmFtZSI6ImlyYmF6SGV5d293LTEiLCJlbWFpbCI6ImlyYmF6MjAwMEBnbWFpbC5jb20iLCJlbWFpbFZlcmlmaWVkIjp0cnVlLCJhY2NvdW50SWQiOjIyNSwicGhvbmVOdW1iZXIiOiIiLCJpYXQiOjE3Mjk1NzAzMDYsImV4cCI6MTczMDQzNDMwNiwiYXVkIjoiVVNFUiIsInN1YiI6IkFVVEgifQ.2zQFZH2t9YmcREym9pWqGftMj8SadKWrM8ipQlw4zkw"
+        previousChat.authorizationKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzNmMDY3Y2Q2NTc2YTZhNDgzNTY0NDQiLCJyb2xlIjoiVVNFUiIsImFjY291bnROYW1lIjoiYWFyYXZfMDkxIiwiZW1haWwiOiJ0ZXN0dXNlcjFAZ21haWwuY29tIiwiZW1haWxWZXJpZmllZCI6dHJ1ZSwiYWNjb3VudElkIjoxLCJwaG9uZU51bWJlciI6Ijk4NzY1NDMyMTAiLCJpYXQiOjE3MzIzMjU1NDQsImV4cCI6MTczMzE4OTU0NCwiYXVkIjoiVVNFUiIsInN1YiI6IkFVVEgifQ.3ZR77-nZ6GrHi8ByqEmbtcWEpPGv3ORoFo6QomYnuhw"
         previousChat.fetchAllFriends { result in
             switch result {
             case .success(_):
                 
-                let ar = self.previousChat.fetchList.reversed()
+                let ar = self.previousChat.fetchList
                 
                 for item in ar {
                     if self.myDictionary[item.id] ?? false {
@@ -220,7 +236,7 @@ extension String {
     func replace(string:String, replacement:String) -> String {
         return self.replacingOccurrences(of: string, with: replacement, options: NSString.CompareOptions.literal, range: nil)
     }
-
+    
     func removeWhitespace() -> String {
         return self.replace(string: " ", replacement: "")
     }

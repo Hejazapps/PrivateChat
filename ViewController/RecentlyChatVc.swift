@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import SocketIO
 
 class RecentlyChatVc: UIViewController {
     
@@ -21,6 +22,8 @@ class RecentlyChatVc: UIViewController {
         self.updateUi()
         self.registerXib()
         self.getAllData()
+        
+       
         // Do any additional setup after loading the view.
     }
     
@@ -57,8 +60,7 @@ class RecentlyChatVc: UIViewController {
     func getAllData() {
         
         
-        fetchFriendsChat.authorizationKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWY4MDVkNGY0ZTRmOWU5OWI5ZTQ3MDMiLCJhY2NvdW50TmFtZSI6ImlyYmF6SGV5d293LTEiLCJlbWFpbCI6ImlyYmF6MjAwMEBnbWFpbC5jb20iLCJlbWFpbFZlcmlmaWVkIjp0cnVlLCJhY2NvdW50SWQiOjIyNSwicGhvbmVOdW1iZXIiOiIiLCJpYXQiOjE3Mjk1NzAzMDYsImV4cCI6MTczMDQzNDMwNiwiYXVkIjoiVVNFUiIsInN1YiI6IkFVVEgifQ.2zQFZH2t9YmcREym9pWqGftMj8SadKWrM8ipQlw4zkw"
-        
+       
         fetchFriendsChat.fetchAllFriends { result in
             switch result {
             case .success(_):
@@ -150,12 +152,7 @@ extension RecentlyChatVc: UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let obj = fetchFriendsChat.fetchList[indexPath.row]
-        let vc = storyboard.instantiateViewController(withIdentifier: "PrivateChat") as! PrivateChat
-        vc.obj = obj
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+      
        
         
     }

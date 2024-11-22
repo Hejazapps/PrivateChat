@@ -12,7 +12,7 @@ import Foundation
 class FetchAllFriendsChat {
     
     var currentPage: Int = 1
-    var authorizationKey: String = ""
+    var authorizationKey: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzNmMDY3Y2Q2NTc2YTZhNDgzNTY0NDQiLCJyb2xlIjoiVVNFUiIsImFjY291bnROYW1lIjoiYWFyYXZfMDkxIiwiZW1haWwiOiJ0ZXN0dXNlcjFAZ21haWwuY29tIiwiZW1haWxWZXJpZmllZCI6dHJ1ZSwiYWNjb3VudElkIjoxLCJwaG9uZU51bWJlciI6Ijk4NzY1NDMyMTAiLCJpYXQiOjE3MzIzMjU1NDQsImV4cCI6MTczMzE4OTU0NCwiYXVkIjoiVVNFUiIsInN1YiI6IkFVVEgifQ.3ZR77-nZ6GrHi8ByqEmbtcWEpPGv3ORoFo6QomYnuhw"
     var shouldFetch = true
     var fetchList = [Chat]()
     
@@ -59,7 +59,7 @@ class FetchAllFriendsChat {
                 
                 let userProfile = try decoder.decode(Response.self, from: data)
                 
-                if let chatData = userProfile.data, let filteredChats = chatData.filteredChats {
+                if let chatData = userProfile.data, let filteredChats = chatData.chats {
                     
                     if filteredChats.count < 10 {
                         self.shouldFetch = false

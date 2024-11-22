@@ -302,11 +302,23 @@
                                                                             <constraint firstAttribute="width" secondItem="DY4-xo-91R" secondAttribute="height" multiplier="1:1" id="TGY-Gd-raN"/>
                                                                         </constraints>
                                                                     </imageView>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qE3-aa-SYP">
+                                                                        <rect key="frame" x="20" y="10" width="40" height="40"/>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                                        <connections>
+                                                                            <action selector="sendMessage:" destination="3Hy-uN-c9a" eventType="touchUpInside" id="CS0-Fy-Snk"/>
+                                                                        </connections>
+                                                                    </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstItem="DY4-xo-91R" firstAttribute="width" secondItem="Rx8-KU-MWf" secondAttribute="width" multiplier="0.5" id="JwW-fW-CyZ"/>
                                                                     <constraint firstAttribute="width" constant="80" id="UfL-ri-LKH"/>
+                                                                    <constraint firstItem="qE3-aa-SYP" firstAttribute="centerX" secondItem="DY4-xo-91R" secondAttribute="centerX" id="a6S-nZ-oDs"/>
+                                                                    <constraint firstItem="qE3-aa-SYP" firstAttribute="centerY" secondItem="DY4-xo-91R" secondAttribute="centerY" id="dHF-g3-Btg"/>
+                                                                    <constraint firstItem="qE3-aa-SYP" firstAttribute="height" secondItem="DY4-xo-91R" secondAttribute="height" id="eKl-5d-JUV"/>
+                                                                    <constraint firstItem="qE3-aa-SYP" firstAttribute="width" secondItem="DY4-xo-91R" secondAttribute="width" id="l7G-E4-R70"/>
                                                                     <constraint firstItem="DY4-xo-91R" firstAttribute="centerX" secondItem="Rx8-KU-MWf" secondAttribute="centerX" id="pdt-J7-7D6"/>
                                                                     <constraint firstItem="DY4-xo-91R" firstAttribute="centerY" secondItem="Rx8-KU-MWf" secondAttribute="centerY" id="yD9-wW-C9u"/>
                                                                 </constraints>
